@@ -4,20 +4,20 @@
 
 - [Canada Government's historical weather data](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html) collected  
 
-- PyTorch framework used to build and train LSTM model on 2015 ~ 2018 data  
+- PyTorch framework used to build and train LSTM model on data of station "Kingston Climate", 2015 ~ 2018  
 
 - FLASK API for backend  
 
 - Notebooks that explain processes from data-collection to prediction  
-    1) [Data Processing Notebook](https://github.com/sijoonlee/deep_learning/blob/master/rnn-weather-forcast-kingston/data_processing_v2.ipynb)  
+    1) [Process Data](https://github.com/sijoonlee/deep_learning/blob/master/rnn-weather-forcast-kingston/data_processing_v2.ipynb)  
     2) [Build and Train Model](https://github.com/sijoonlee/deep_learning/blob/master/rnn-weather-forcast-kingston/build_and_save_model_v2.ipynb)  
     3) [Load Model and Predict](https://github.com/sijoonlee/deep_learning/blob/master/rnn-weather-forcast-kingston/prediction_v2.ipynb)  
 
-- Screenshot
-![Screenshot](screenshot.png)
+- Screenshot  
+![Screenshot](Screenshot.png)  
 
-- Requirements
-'''
+- Requirements  
+```
 numpy==1.16.2
 Flask_RESTful==0.3.7
 torch==1.1.0
@@ -25,7 +25,7 @@ timezonefinder==4.1.0
 pytz==2018.7
 Flask==1.0.2
 pandas==0.23.4
-'''
+```
 
 - I tried to deploy this app on heroku,   
 but free-tier doesn't support over 500MB  
@@ -33,10 +33,10 @@ only the PyTorch package exceeds 700 MB
 
 - How to Run (Linux)  
 type commands below and run browser on http://127.0.0.1:5000/   
-'''
+```
 export FLASK_APP=app
 flask run
-'''
+```
 
 
 
