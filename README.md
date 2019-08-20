@@ -1,14 +1,22 @@
 # Temperature Forecast Web Application  
 
-- This app predicts the next day's temperature on Kingston, ON, CA from last 480 hours data  
+- This app predicts the next day's temperature on Kingston, ON, CA from last 480 hours data
 
-- [Canada Government's historical weather data](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html) collected  
+    1) Data Source
+    [Canada Government's historical weather data](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html) collected  
+    Weather Station: Kingston Climate
+    
+    2) Framework
+    PyTorch framework
+    
+    3) Model
+    LSTM model trained on data of station "Kingston Climate", 2015.1.1 ~ 2019.8.7
+    Input: 480 hours of data (8 features: temperature, dew point temperature, relative humidity, and so on)
+    Output: a temperature of 24 hours later
+    
+    4) FLASK API for backend  
 
-- PyTorch framework used to build and train LSTM model on data of station "Kingston Climate", 2015 ~ 2019  
-
-- FLASK API for backend  
-
-- Notebooks that explain processes from data-collection to prediction  
+- Notebooks that explain the detailed processes from data-collection to prediction  
     1) [Process Data](https://github.com/sijoonlee/deep_learning/blob/master/rnn-weather-forcast-kingston/data_processing_v2.ipynb)  
     2) [Build and Train Model](https://github.com/sijoonlee/deep_learning/blob/master/rnn-weather-forcast-kingston/build_and_save_model_v2.ipynb)  
     3) [Load Model and Predict](https://github.com/sijoonlee/deep_learning/blob/master/rnn-weather-forcast-kingston/prediction_v2.ipynb)  
