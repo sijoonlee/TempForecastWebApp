@@ -2,14 +2,14 @@
 
 - This app predicts the next day's temperature on Kingston, ON, CA from last 480 hours data
 
-    1) Data Source
+    1) Data Source  
     [Canada Government's historical weather data](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html) collected  
     Weather Station: Kingston Climate
     
-    2) Framework
+    2) Framework  
     PyTorch framework
     
-    3) Model
+    3) Model  
     LSTM model trained on data of station "Kingston Climate", 2015.1.1 ~ 2019.8.7  
     Input: 480 hours of data (8 features: temperature, dew point temperature, relative humidity, and so on)  
     Output: a temperature of 24 hours later  
