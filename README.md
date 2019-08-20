@@ -10,9 +10,9 @@
     PyTorch framework
     
     3) Model
-    LSTM model trained on data of station "Kingston Climate", 2015.1.1 ~ 2019.8.7
-    Input: 480 hours of data (8 features: temperature, dew point temperature, relative humidity, and so on)
-    Output: a temperature of 24 hours later
+    LSTM model trained on data of station "Kingston Climate", 2015.1.1 ~ 2019.8.7  
+    Input: 480 hours of data (8 features: temperature, dew point temperature, relative humidity, and so on)  
+    Output: a temperature of 24 hours later  
     
     4) FLASK API for backend  
 
