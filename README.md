@@ -4,7 +4,7 @@
 
 - [Canada Government's historical weather data](http://climate.weather.gc.ca/historical_data/search_historic_data_e.html) collected  
 
-- PyTorch framework used to build and train LSTM model on data of station "Kingston Climate", 2015 ~ 2018  
+- PyTorch framework used to build and train LSTM model on data of station "Kingston Climate", 2015 ~ 2019  
 
 - FLASK API for backend  
 
