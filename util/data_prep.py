@@ -154,19 +154,25 @@ class Downloader(object):
 
 # print(buildDataFrame([2015,1], [2019,8], "47267", True, "modelSequence.csv")[:3])
 
-	def getLatestData(self, station = "47267", length = 480, save = True, saveFile = "latestSequence.csv"):
+	def getLatestData(self, year, month, day, station = "47267", length = 480, save = True, saveFile = "latestSequence.csv"):
 		assert length < 1000,\
 			print("don't use too long sequence, lengh should be lesser than 1000")
 		
-		year, month, day, _, _ = self.getTimeAtStation()
-		if (day-1)*24 < length:
+		# if the number of data in a month is less than the length, will get the data of two months
+		# to get 24 consecutive predicts, we need 480 + 0, 1, ..., 23 sequences    
+		if (day-1)*24 < length + 23: 
 			if month is not 1:
-				df = self.buildDataFrame([year, month-1], [year, month], station, False)
+				df = buildDataFrame([year, month-1], [year, month], station, False)
 			if month is 1:
-				df = self.buildDataFrame([year - 1, 12], [year, month], station, False)
-		
-		df = df[-length-23:]
+				df = buildDataFrame([year - 1, 12], [year, month], station, False)
+        
+		else:
+			df = buildDataFrame([year, month], [year, month], station, False)
+        
+        
+    	df = df[-length-23:]
+
 		if save:
 			self.saveDataFrame(df, saveFile)
 		
-		return df, year, month, day
+		return df
