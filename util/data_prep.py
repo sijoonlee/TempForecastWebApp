@@ -103,7 +103,32 @@ class Downloader(object):
 		df[df.columns[4]] = df[df.columns[4]].str.slice(0,2).astype("float64")
 		return df
 
-	def deleteColumns(self, df, to_be_deleted = [1, 3, 6, 8, 10, 12, 14, 15, 16, 18, 19, 20, 21, 22, 23] ):
+	#     0Date/Time
+	#     1Year
+	#     2Month
+	#     3Day
+	#     4Time
+	#     5Temp (°C)
+	#     6Temp Flag
+	#     7Dew Point Temp (°C)
+	#     8Dew Point Temp Flag
+	#     9Rel Hum (%)
+	#     10Rel Hum Flag
+	#     11Wind Dir (10s deg)
+	#     12Wind Dir Flag
+	#     13Wind Spd (km/h)
+	#     14Wind Spd Flag
+	#     15Visibility (km)
+	#     16Visibility Flag
+	#     17Stn Press (kPa)
+	#     18Stn Press Flag
+	#     19Hmdx
+	#     20Hmdx Flag
+	#     21Wind Chill
+	#     22Wind Chill Flag
+	#     23Weather
+
+	def deleteColumns(self, df, to_be_deleted = [1, 2, 3, 6, 8, 10, 12, 14, 15, 16, 18, 19, 20, 21, 22, 23] ):
 		df = df.drop(df.columns[to_be_deleted], axis=1)
 		return df.set_index(df.columns[0])
 		
@@ -115,7 +140,7 @@ class Downloader(object):
 
 	def temperatureFirst(self, df):
 		cols = df.columns.tolist()
-		cols = cols[2:] + cols[:2]
+		cols = cols[1:] + cols[:1]
 		df = df[cols]
 		return df
 	'''
@@ -162,15 +187,14 @@ class Downloader(object):
 		# to get 24 consecutive predicts, we need 480 + 0, 1, ..., 23 sequences    
 		if (day-1)*24 < length + 23: 
 			if month is not 1:
-				df = buildDataFrame([year, month-1], [year, month], station, False)
+				df = self.buildDataFrame([year, month-1], [year, month], station, False)
 			if month is 1:
-				df = buildDataFrame([year - 1, 12], [year, month], station, False)
+				df = self.buildDataFrame([year - 1, 12], [year, month], station, False)
         
 		else:
-			df = buildDataFrame([year, month], [year, month], station, False)
-        
-        
-    	df = df[-length-23:]
+			df = self.buildDataFrame([year, month], [year, month], station, False)
+		
+		df = df[-length-23:]
 
 		if save:
 			self.saveDataFrame(df, saveFile)

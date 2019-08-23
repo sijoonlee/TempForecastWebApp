@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 class SimpleLSTM(nn.Module):
-    def __init__(self, input_size = 8, output_size = 1, hidden_size=100, num_layers=1):
+    def __init__(self, input_size = 7, output_size = 1, hidden_size=100, num_layers=1):
         super().__init__()
         self.input_size = input_size
         self.output_size = output_size

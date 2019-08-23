@@ -17,10 +17,9 @@ class Predict(object):
         self.getLatestSequence()
 
     def getLatestSequence(self):
-        dataset, year, month, day = self.dp.getLatestData(station = "47267", length = 480, save = False)
-        self.year = year
-        self.month = month
-        self.day = day
+        
+        self.year, self.month, self.day, _, _ = self.dp.getTimeAtStation()
+        dataset = self.dp.getLatestData(self.year, self.month, self.day, station = "47267", length = 480, save = False)
         # dataset.set_index(dataset.columns[0], inplace=True)
         self.input_data = np.array(dataset)
         self.mean = np.mean(self.input_data, axis=0)
