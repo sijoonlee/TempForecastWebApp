@@ -1,4 +1,4 @@
-numpy==1.16.2
+numpy==1.22.0
 Flask_RESTful==0.3.7
 torch==1.1.0
 timezonefinder==4.1.0
